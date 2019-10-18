@@ -60,14 +60,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  # アカウント編集後、プロフィール画面に移動する
+  # after edit account, redirect to profile page
   def after_update_path_for(resource)
     user_path(id: current_user.id)
   end
 
-  # ログイン後、blogs/indexに移動する
+  # after sign-in redirect to feeds/index
   def after_sign_in_path_for(resource)
     feeds_path
   end
 
+  # Override the update_resource method
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 end
