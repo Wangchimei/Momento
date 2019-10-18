@@ -1,5 +1,9 @@
 class FeedsController < ApplicationController
 before_action :set_feed, only: [:edit, :update, :show, :destroy]
+layout 'home', only: [:home]
+
+  def home
+  end
 
   def index
     @feeds = Feed.all.order(created_at: :desc)

@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momento</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="site-wrapper">
+    <%#=render "shared/navbar"%>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-info">
+        <%= content_tag(:div, value, class: "#{key}") %>
+      </div>
+    <% end %>
 
     <% if user_signed_in? %>
       <%= link_to "ブログ投稿", feeds_path %>
@@ -21,6 +27,11 @@
       <%= link_to "ログイン", new_user_session_path %>
     <% end %>
       <%= link_to "Show", users_path %>
-    <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
+
+    <%#=render "shared/footer"%>
+
   </body>
 </html>

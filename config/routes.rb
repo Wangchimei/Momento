@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  root 'feeds#index'
+  root 'feeds#home'
 
   resources :feeds do
     collection do

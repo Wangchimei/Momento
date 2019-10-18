@@ -1,0 +1,11 @@
+<div class="d-flex w-100 h-100 mx-auto flex-column">
+  <div class="cover-container text-center">
+    <div class="logo">
+      <p><%= image_tag "coverlogo.png", class:"brand-image"%></p>
+    </div>
+    <div class="text-center cover-button">
+      <%= link_to "新規登録", new_user_registration_path, class:"button mr-4" %>
+      <%= link_to "ログイン", new_user_session_path, class:"button" %>
+    </div>
+  </div>
+</div>

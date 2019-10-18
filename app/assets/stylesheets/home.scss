@@ -1,0 +1,114 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+//Coverpage background
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(125deg,#1f3a93,#4484ce,#00a5ce,#0dcfcc,#f88fb4, #f7d794, #686de0);
+  background-size: 1200% 1200%;
+  animation: bganimation 45s ease infinite;
+  height: 100%;
+}
+
+.cover-container {
+  margin: auto auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.brand-image {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  max-width: 70%;
+}
+
+@keyframes bganimation {
+  0%{
+    background-position: 0% 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0% 50%;
+  }
+}
+
+// Custom button
+.button {
+  position: relative;
+  padding: 0.6em 1.2em;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  outline: none;
+  color: #000;
+  mix-blend-mode: screen;
+}
+
+.button::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 0.3em;
+  content: '';
+  mix-blend-mode: color-burn;
+}
+
+.button:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+
+
+
+.btn-outline-info {
+  color: #fff !important;
+  background: none;
+  border-color: #fff !important;
+}
+
+.btn-outline-info:hover {
+  background: #fff !important;
+  color: #4484ce !important;
+}
+
+.btn-light {
+  font-size: 1.1rem !important;
+}
+
+.btn-light:hover {
+  background-color: #484848 !important;
+  border-color: #484848 !important;
+  color: #F0EEEE !important;
+}
+
+//Signin form
+.form-signin {
+  width: 550px;
+}
+
+.signin-box {
+  margin-top: .5rem;
+  border-radius: 5px;
+}
+
+//Error display
+ul {
+  padding-left: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+li {
+  list-style-type: none;
+}
+
+li i {
+  padding-right: 0.5rem;
+}
