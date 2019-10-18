@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-start align-items-center">
+          <%= link_to '', feeds_path, class: "fas fa-chevron-left mx-3" %>
+          <%#= avatar(@feed.user, "rounded-circle")%>
+          <div class="ml-2">
+            <p class="h6 mb-0 ml-0"><%#=@feed.user.name %></p>
+            <i class="far fa-clock text-muted h7 mt-0 ml-0" aria-hidden="true"> <%= distance_of_time_in_words(@feed.created_at, Time.now)%>前</i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <%= image_tag @feed.image.url, class:"card-image"%>
+      </div>
+    </div>
+    <% if @feed.content.present? %>
+      <div class="card-body">
+        <div class="card-text ml-2 py-1">
+          <%= @feed.content%>
+        </div>
+      </div>
+    <%end%>
+    <div class="card-footer">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn btn-default px-0">
+          <span class="far fa-comments h6 mb-0 ml-1" aria-hidden="true"> <%#= @feed.comments.count%>件</span>
+          <%# unless @feed.user_id == current_user.id %>
+            <%# if @favorite.present? %>
+              <%#= link_to '', favorite_path(id: @favorite.id), method: :delete, 
+              class:"fas fa-heart ml-4 pt-1 like-link", id:"like-mark"%>
+            <%# else %>
+              <%#= link_to '', favorites_path(feed_id: @feed.id), method: :post, class:"far fa-heart ml-3 pt-1 like-link", id:"like-mark"%>
+            <%# end %>
+          <%# end %>
+        </div>
+        <%# if current_user.id == @feed.user_id %>
+          <div>
+            <%= link_to '', edit_feed_path(@feed), class:"far fa-edit h5"%>
+            <%= link_to '', feed_path(@feed), method: :delete, data: {confirm: "投稿を削除しますか？"}, class: "far fa-trash-alt mr-1 ml-3 h5" %>
+          </div>
+        <%#end%>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-3">
+    <div class="card-header">
+      <%#= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
+    </div>
+    <div class="card-footer">
+      <%# unless @feed.comments.count.zero? %>
+        <div class="container"> 
+          <%#= render @feed.comments %>
+        </div>
+      <%# end %>
+    </div>
+  </div>
+</div>
+<div class="mb-5"></div>
