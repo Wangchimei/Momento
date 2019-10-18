@@ -11,11 +11,15 @@ before_action :set_feed, only: [:edit, :update, :show, :destroy]
 
   def create
     @feed = Feed.new(feed_params)
-    if @feed.save
-      redirect_to feeds_path
-      flash[:notice] = "フィードが投稿されました"
-    else
+    if params[:back]
       render :new
+    else
+      if @feed.save
+        redirect_to feeds_path
+        flash[:notice] = "フィードが投稿されました"
+      else
+        render :new
+      end
     end
   end
 
