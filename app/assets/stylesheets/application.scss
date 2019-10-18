@@ -1,0 +1,115 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html,
+body {
+  background-color: #f0eeee;
+}
+
+// Button custom
+.btn-outline-light {
+  color: #aaa;
+  border-color: #aaa;
+}
+
+.btn-outline-light:hover {
+  color: #fff;
+  border-color: #aaa;
+  background-color: #aaa;
+}
+
+.btn-outline-info {
+  color: #484848 !important;
+  border-color: #484848 !important;
+}
+
+.btn-outline-info:hover {
+  background-color: #484848 !important;
+  color: #F0EEEE !important;
+}
+
+.btn-info {
+  color: #F0EEEE !important;
+  background-color: #5e5e5e !important;
+  border-color: #5e5e5e !important;
+}
+
+.btn-info:hover {
+  color: #F0EEEE !important;
+  background-color: #484848 !important;
+  border-color: #484848 !important;
+}
+
+.submit-btn {
+  border: none;
+}
+// Card custom
+.card {
+  max-width: 800px !important;
+  margin: 0 auto;
+}
+.card-header {
+  background-color: #fff !important;
+  padding: 10px !important;
+  color: #202528 !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+.card-footer {
+  background-color: #fff !important;
+  padding: 5px 15px !important;
+}
+
+.card-image {
+  width: 100%;
+}
+
+// Image field Custom
+
+#img_field {
+  position: relative;
+  margin: 0 auto;
+  padding: 5px 5px;
+  color: #dfdfdf;
+  cursor: pointer;
+  max-width: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: 0.3s ease-out;
+}
+
+#img_field:hover {
+  background-color: #aaa;
+  transition: 0.3s ease-out;
+  opacity: 0.5;
+}
+
+#uploaded_img {
+  max-width: 100%;
+}
+
+.h6 {
+  font-size: 1.1rem !important;
+}
+
+.h7 {
+  font-size: .8rem;
+}
+
+// Form custom
+.form-control {
+  border-radius: 0;
+}
+
+.text-box {
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 0 auto;
+}
