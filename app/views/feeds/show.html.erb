@@ -79,15 +79,13 @@
         </div>
       </div>
       <div class="card gedf-card my-3">
-        <div class="card-header">
-          <%#= render partial: 'comments/comment_form', comment: @comment, feed: @feed %>
-        </div>
-        <div class="card-footer">
-          <%# unless @feed.comments.count.zero? %>
-            <div class="container">
-              <%#= render @feed.comments %>
-            </div>
-          <%# end %>
+        <div class="card-header" id="comments_area">
+          <% unless @feed.comments.count.zero? %>
+          <div class="container">
+            <%= render partial: 'comments/index', locals: { comment: @comment, feed: @feed } %>
+          </div>
+          <% end %>
+          <%= render partial: 'comments/form', locals: { comment: @comment, feed: @feed } %>
         </div>
       </div>
     </div>

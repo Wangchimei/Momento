@@ -1,0 +1,31 @@
+<div class="card-body">
+  <div class="container my-2">
+    <div class="row align-items-center px-1 py-1">
+      <div class="col-3 col-md-2 col-lg-1 text-center">
+        <%=avatar(current_user, "rounded-circle")%>
+      </div>
+      <div class="col-6 col-md-9 col-lg-10 text-center">
+        <%= form_with(model: [feed, comment]) do |f| %>
+          <% if comment.errors.any? %>
+            <div id="error_explanation">
+              <ul>
+                <% comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= f.text_field :content,class:"form-control"%>
+          <%#= f.hidden_field :feed_id, value: @feed.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+      </div>
+      <div class="col-3 col-md-1 col-lg-1 text-center px-0">
+          <button class="submit-btn">
+            <%= f.submit "コメント", class:"d-none" %>
+            <i class="far fa-paper-plane btn btn-outline-primary px-3 py-2"></i>
+          </button>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

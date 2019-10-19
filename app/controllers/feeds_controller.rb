@@ -47,6 +47,8 @@ layout 'home', only: [:home]
 
   def show
     @favorites = current_user.favorites
+    @comments = @feed.comments
+    @comment = @feed.comments.build
   end
 
   def destroy
