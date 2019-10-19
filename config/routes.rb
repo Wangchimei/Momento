@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   resources :users, only: [:index, :show]

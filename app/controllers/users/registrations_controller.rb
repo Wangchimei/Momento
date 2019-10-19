@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  layout 'home', only: [:new, :create]
 
   # GET /resource/sign_up
   # def new
@@ -63,11 +64,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # after edit account, redirect to profile page
   def after_update_path_for(resource)
     user_path(id: current_user.id)
-  end
-
-  # after sign-in redirect to feeds/index
-  def after_sign_in_path_for(resource)
-    feeds_path
   end
 
   # Override the update_resource method
