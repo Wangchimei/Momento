@@ -22,6 +22,6 @@ This is a starter web application project built with Ruby on Rails.
 ### Potential implementation:
 [] Set Up Devise with Ajax
 
-[]
+[] Log in with social authentication
 
 []

@@ -1,0 +1,5 @@
+<% if current_user.favorites.find_by(feed_id: feed.id)%>
+  <%= link_to '', favorite_path(id: @favorites.find_by(feed_id: feed.id)), method: :delete, remote: true, class:"fas fa-heart like-link"%>
+<% else %>
+  <%= link_to '', favorites_path(feed_id: feed.id), method: :post, remote: true, class:"far fa-heart like-link"%>
+<% end %>

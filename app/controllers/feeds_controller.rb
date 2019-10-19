@@ -6,7 +6,8 @@ layout 'home', only: [:home]
   end
 
   def index
-    @feeds = Feed.all.order(created_at: :desc)
+    @feeds = Feed.all.limit(10).order(created_at: :desc)
+    @favorites = current_user.favorites
   end
 
   def new
@@ -45,6 +46,7 @@ layout 'home', only: [:home]
   end
 
   def show
+    @favorites = current_user.favorites
   end
 
   def destroy
