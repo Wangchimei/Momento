@@ -1,48 +1,92 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-5">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <div class="card-body">
+            <div class="card-title ml-3 mt-2">
+              <div id="avatar_field" class="text-center" onClick="$('#profile').click()" >
+                <%#= avatar(@user, "profile-avatar") %> 
+              </div>
+              <div class="text-center">
+                <%#= f.submit "プロフィール写真を変更", class: "btn btn-sm btn-info d-none", id:"btnChangePicture"%>
+              </div>
+            </div>
+            <div>
+              <%#=f.file_field :avatar, class:"file-field", style: "display:none;", id: "profile"%>
+              <%#=f.hidden_field :avatar_cache, class:"profile-avatar"%>
+            </div>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+          <div class="card-body">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">プロファイルを編集</a>
+                <a class="nav-item nav-link" id="nav-pw-tab" data-toggle="tab" href="#nav-pw" role="tab" aria-controls="nav-pw" aria-selected="false">パスワードを変更</a>
+                <a class="nav-item nav-link" id="nav-delete-tab" data-toggle="tab" href="#nav-delete" role="tab" aria-controls="nav-delete" aria-selected="false">アカウントを削除</a>
+              </div>
+            </nav>
+            <div class="tab-content px-5 my-3" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+                <div class="form-group mx-auto">
+                  <div>
+                    <%= f.label :name, "名前" %>
+                    <%= f.text_field :name, autofocus: true, class: "form-control"%>
+                  </div>
+                  <div class="mt-4">
+                    <%= f.label :email, "メールアドレス"%>
+                    <%= f.email_field :email, autocomplete: "email", class: "form-control"%>
+                  </div>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
+                  <div class="text-center my-4">
+                    <%= f.submit "保存", class: "btn btn-info my-4"%>
+                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-pw" role="tabpanel" aria-labelledby="nav-pw-tab">
+                <div class="form-group mx-auto">
+                  <div class="field">
+                    <%= f.label :current_password, "現在のパスワード" %>
+                    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+                  </div>
+                  <hr>
+                  <div class="mt-4">
+                    <%= f.label :password, "新しいパスワード"%>
+                    <%= f.password_field :password, autocomplete: "new-password", class: "form-control"%>
+                  </div>
+                  <div class="mt-4">
+                    <%= f.label :password_confirmation, "新しいパスワード再入力"%>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"%>
+                  </div>
+                  <% if @minimum_password_length %>
+                    <div class="text-center">
+                      <small class="text-muted fas fa-exclamation-circle">パスワードの長さは最低 <%= @minimum_password_length %>文字です。</small>
+                    </div>
+                  <% end %>
+                  <div class="text-center my-4">
+                    <%= f.submit "保存", class: "btn btn-info my-4"%>
+                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-delete-tab">
+                <div class="form-group mx-auto">
+                  <div class="field">
+                    <p class="h6 mt-4">アカウントを削除すると、そのアカウントにログインできなくなります。</p>
+                    <%= button_to "削除", registration_path(resource_name), data: { confirm: "アカウントを削除しますか。" }, method: :delete, class: "btn btn-info my-4" %>
+                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%#= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
