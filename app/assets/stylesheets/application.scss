@@ -8,10 +8,10 @@ body {
 }
 
 // Nav background
-  .nav-bg {
-    background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
-    background-size: 200% 200%;
-  }
+.nav-bg {
+  background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
+  background-size: 200% 200%;
+}
 
 // Button custom
 .btn-outline-light {
@@ -50,6 +50,7 @@ body {
 .submit-btn {
   border: none;
 }
+
 // Card custom
 .card {
   max-width: 800px !important;
@@ -118,4 +119,16 @@ body {
   box-sizing: border-box;
   max-width: 600px;
   margin: 0 auto;
+}
+
+//Profile
+.profile-avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.col-3 {
+  flex: 0 0 32% !important;
+  max-width: 32% !important;
 }

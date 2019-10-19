@@ -6,15 +6,15 @@
           <div class="card-body">
             <div class="card-title ml-3 mt-2">
               <div id="avatar_field" class="text-center" onClick="$('#profile').click()" >
-                <%#= avatar(@user, "profile-avatar") %> 
+                <%= avatar(current_user, "profile-avatar") %>
               </div>
               <div class="text-center">
-                <%#= f.submit "プロフィール写真を変更", class: "btn btn-sm btn-info d-none", id:"btnChangePicture"%>
+                <%= f.submit "プロフィール写真を変更", class: "btn btn-sm btn-info d-none", id:"btnChangePicture"%>
               </div>
             </div>
             <div>
-              <%#=f.file_field :avatar, class:"file-field", style: "display:none;", id: "profile"%>
-              <%#=f.hidden_field :avatar_cache, class:"profile-avatar"%>
+              <%=f.file_field :avatar, class:"file-field", style: "display:none;", id: "profile"%>
+              <%=f.hidden_field :avatar_cache, class:"profile-avatar"%>
             </div>
           </div>
 
@@ -50,11 +50,6 @@
               </div>
               <div class="tab-pane fade" id="nav-pw" role="tabpanel" aria-labelledby="nav-pw-tab">
                 <div class="form-group mx-auto">
-                  <div class="field">
-                    <%= f.label :current_password, "現在のパスワード" %>
-                    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
-                  </div>
-                  <hr>
                   <div class="mt-4">
                     <%= f.label :password, "新しいパスワード"%>
                     <%= f.password_field :password, autocomplete: "new-password", class: "form-control"%>
@@ -74,18 +69,19 @@
                   </div>
                 </div>
               </div>
-              <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-delete-tab">
-                <div class="form-group mx-auto">
-                  <div class="field">
-                    <p class="h6 mt-4">アカウントを削除すると、そのアカウントにログインできなくなります。</p>
-                    <%= button_to "削除", registration_path(resource_name), data: { confirm: "アカウントを削除しますか。" }, method: :delete, class: "btn btn-info my-4" %>
-                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
-                  </div>
+            <%end%>
+            <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-delete-tab">
+              <div class="form-group mx-auto">
+                <div class="field">
+                  <p class="h6 mt-4">アカウントを削除すると、そのアカウントにログインできなくなります。</p>
+                    <div class="text-center my-4">
+                      <%= button_to "削除", registration_path(resource_name), data: { confirm: "アカウントを削除しますか。" }, method: :delete, class: "btn btn-danger my-4" %>
+                    </div>
                 </div>
               </div>
             </div>
           </div>
-        <%end%>
+        </div>
       </div>
     </div>
   </div>
