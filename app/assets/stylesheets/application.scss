@@ -19,8 +19,8 @@ button.navbar-toggler.navbar-toggler-right {
 
 @media (max-width: 768px) {
   nav.navbar {
-   background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
-      background-size: 200% 200%;
+    background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
+    background-size: 200% 200%;
   }
 }
 
@@ -34,6 +34,17 @@ button.navbar-toggler.navbar-toggler-right {
   color: #fff;
   border-color: #aaa;
   background-color: #aaa;
+}
+
+.btn-outline-primary {
+  color: #00C7C9;
+  border-color: #00C7C9;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  border-color: #00C7C9;
+  background-color: #00C7C9;
 }
 
 .btn-outline-info {
@@ -141,7 +152,11 @@ button.navbar-toggler.navbar-toggler-right {
   width: 50px;
   height: 50px;
 }
-
+.feed-avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
 //Profile Avatar
 .profile-avatar {
   border-radius: 50%;
