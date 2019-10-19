@@ -7,10 +7,21 @@ body {
   background-color: #f0eeee;
 }
 
-// Nav background
+// Nav bar
 .nav-bg {
   background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
   background-size: 200% 200%;
+}
+
+button.navbar-toggler.navbar-toggler-right {
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  nav.navbar {
+   background-image: linear-gradient(125deg,#00CFC8,#00a5ce);
+      background-size: 200% 200%;
+  }
 }
 
 // Button custom
