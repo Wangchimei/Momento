@@ -1,16 +1,16 @@
 <% @feeds.each do |feed| %>
-  <div class="container mt-4">
+  <div class="container mt-5">
     <div class="card">
       <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex justify-content-start align-items-center">
-            <%#= avatar(feed.user, "rounded-circle")%>
+            <%= avatar(feed.user, "rounded-circle")%>
             <div class="ml-2">
-              <p class="h6 mb-0 ml-0"><%#=feed.user.name %></p>
+              <p class="h6 mb-0 ml-0"><%=feed.user.name %></p>
               <i class="far fa-clock text-muted h7 mt-0 ml-0" aria-hidden="true"> <%= distance_of_time_in_words(feed.created_at, Time.now)%>前</i>
             </div>
           </div>
-          <%# if current_user.id == feed.user_id %>
+          <% if current_user == feed.user %>
             <div class="dropdown">
               <button class="btn btn-link" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-ellipsis-h"></i>
@@ -20,12 +20,12 @@
                 <%= link_to '削除', feed_path(feed), method: :delete, data: {confirm: "投稿を削除しますか？"}, class: "dropdown-item" %>
               </div>
             </div>
-          <%#end%>
+          <% end %>
         </div>
       </div>
       <div class="card-body">
         <div>
-          <%= image_tag feed.image.url, class:"card-image" if feed.image.url %>
+          <%= image_tag feed.image.url, class:"card-image"%>
         </div>
       </div>
       <% if feed.content.present? %>
@@ -34,7 +34,7 @@
             <%= feed.content %>
           </div>
         </div>
-      <%end%>
+      <% end %>
       <div class="card-footer">
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn btn-default px-0">

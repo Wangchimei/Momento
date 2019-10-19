@@ -60,7 +60,7 @@ layout 'home', only: [:home]
   end
 
   def feed_params
-    params.require(:feed).permit(:content, :image, :image_cache)
+    params.require(:feed).permit(:content, :image, :image_cache, :user_id)
   end
 
 end

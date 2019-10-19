@@ -6,8 +6,6 @@
 
     <%= form_with(model: @feed, local: true, url:feeds_path) do |f| %>
 
-      <%#= render 'shared/feed_error'%>
-
       <div class="form-group text-center">
         <div class="wrapper">
           <div class="card-body mx-auto" id="img_field">
@@ -23,7 +21,7 @@
           <%end%>
 
           <div>
-            <%#=f.hidden_field :user_id%>
+            <%=f.hidden_field :user_id%>
           </div>
 
           <div class="mb-4">

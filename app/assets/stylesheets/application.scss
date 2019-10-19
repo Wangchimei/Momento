@@ -75,7 +75,6 @@ body {
 }
 
 // Image field Custom
-
 #img_field {
   position: relative;
   margin: 0 auto;
@@ -102,8 +101,13 @@ body {
   max-width: 100%;
 }
 
+// Font size
 .h6 {
   font-size: 1.1rem !important;
+}
+
+.h6-5 {
+  font-size: .9rem;
 }
 
 .h7 {
@@ -121,14 +125,29 @@ body {
   margin: 0 auto;
 }
 
-//Profile
+//Feed Avatar
+.rounded-circle {
+  width: 50px;
+  height: 50px;
+}
+
+//Profile Avatar
 .profile-avatar {
   border-radius: 50%;
   width: 120px;
   height: 120px;
 }
 
-.col-3 {
-  flex: 0 0 32% !important;
-  max-width: 32% !important;
+.image-box {
+  flex: 0 0 32%;
+  max-width: 32%;
+  display: inline-block;
+}
+
+.img-inbox {
+  width: 100%;
+}
+
+.img-inbox:hover {
+  opacity: 0.8;
 }
