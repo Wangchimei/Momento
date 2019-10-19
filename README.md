@@ -4,14 +4,14 @@
 
 This is a starter web application project built with Ruby on Rails.
 
-### Features to be implement:
+### Features to be implemented:
 [x] Basic CRUD Operations
 
 [x] Devise Authentication
 
 [] Authorization
 
-[] Favorites
+[x] Favorites
 
 [] Comment
 
