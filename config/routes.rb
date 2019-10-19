@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feeds do
+    resources :comments
+  end
+
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: {
     registrations: 'users/registrations',
