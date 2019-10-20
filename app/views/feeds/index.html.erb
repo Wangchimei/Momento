@@ -1,34 +1,7 @@
 <div class="container-fluid gedf-wrapper">
   <div class="row mt-3">
     <div class="col-md-3">
-      <div class="input-group form-group">
-        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-primary" type="button" id="button-addon2">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </div>
-      <div class="card text-center my-3">
-        <div class="card-body my-3">
-          <div><%= avatar(current_user, "feed-avatar")%></div>
-          <div class="h5 mb-0"><%=current_user.name%></div>
-        </div>
-        <ul class="list-group list-group-flush px-1 pb-1">
-          <li class="list-group-item">
-            <div class="h6 text-muted">フォロワー</div>
-            <div class="h5">5.2342</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">フォロー</div>
-            <div class="h5">6758</div>
-          </li>
-          <li class="list-group-item">
-            <div class="h6 text-muted">お気に入り数</div>
-            <div class="h5">6758</div>
-          </li>
-        </ul>
-      </div>
+      <%= render 'shared/user_info_left_sidebar'%>
     </div>
     <div class="col-md-6 gedf-main">
       <% @feeds.each do |feed| %>
@@ -72,7 +45,7 @@
               <div class="d-flex align-items-center my-2">
                 <div class="comment-wrap">
                   <i class="far fa-comments h5 mb-0"></i>
-                  <span class="h6"><%#= feed.comments.count%>件</span>
+                  <span class="h6"><%= feed.comments.count %>件</span>
                 </div>
                 <% unless feed.user_id == current_user.id %>
                   <div id="likes_button_<%=feed.id%>" class="ml-3">
@@ -90,15 +63,7 @@
       <%end%>
     </div>
     <div class="col-md-3">
-      <div class="card gedf-card mb-3">
-        <div class="card-body text-center">
-          <h5 class="h6 card-title my-2">友達一覧</h5>
-          <div class="d-flex justify-content-between align-items-center my-2 mx-3">
-            <h6 class="card-subtitle h6 mt-0">Kimmy</h6>
-            <a href="#" class="btn btn-outline-primary h7 px-1 py-0">メッセージ</a>
-          </div>
-        </div>
-      </div>
+      <%= render 'shared/conversation_right_sidebar'%>
     </div>
   </div>
 </div>

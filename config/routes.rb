@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :feeds do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   # ログイン、アカウント編集後、任意のページに推移させるための記述

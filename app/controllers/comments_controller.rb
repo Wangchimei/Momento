@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @comment = @feed.comments.find(params[:id])
     @comment.destroy
     flash[:notice] = "コメントを削除しました"
