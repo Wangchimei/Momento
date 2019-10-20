@@ -49,7 +49,7 @@
                 </div>
                 <% unless feed.user_id == current_user.id %>
                   <div id="likes_button_<%=feed.id%>" class="ml-3">
-                    <%= render 'favorites/favorites_icon', feed: feed %>
+                    <%= render partial: 'favorites/favorites_icon', locals: { feed: feed }%>
                   </div>
                 <% end %>
               </div>

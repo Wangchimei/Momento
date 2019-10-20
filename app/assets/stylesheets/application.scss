@@ -59,27 +59,27 @@ button.navbar-toggler.navbar-toggler-right {
   background-color: #00BECA;
 }
 
-.submit-btn {
+.comment-btn {
   border: none;
 }
 
 // Card custom
 .card {
-  max-width: 800px !important;
+  max-width: 800px;
   margin: 0 auto;
 }
 .card-header {
-  background-color: #fff !important;
-  padding: 10px !important;
-  color: #202528 !important;
+  background-color: #fff;
+  padding: 10px;
+  color: #202528;
 }
 
 .card-body {
-  padding: 0 !important;
+  padding: 0;
 }
 .card-footer {
-  background-color: #fff !important;
-  padding: 5px 15px !important;
+  background-color: #fff;
+  padding: 5px 15px;
 }
 
 .card-image {
@@ -135,11 +135,7 @@ button.navbar-toggler.navbar-toggler-right {
   opacity: 0.5;
 }
 
-#uploaded_img {
-  max-width: 100%;
-}
-
-.preview {
+.preview-avatar {
   border-radius: 50%;
   width: 120px;
   height: 120px;

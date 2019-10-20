@@ -45,7 +45,7 @@ $(function() {
       $preview.append(
         $("<img>").attr({
           src: dataUri,
-          class: "preview image_box"
+          class: "preview-avatar image_box"
         })
       );
     };
