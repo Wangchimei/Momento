@@ -9,7 +9,7 @@
                 <%= avatar(current_user, "profile-avatar") %>
               </div>
               <div class="text-center">
-                <%= f.submit "プロフィール写真を変更", class: "btn btn-sm btn-info d-none", id:"btnChangePicture"%>
+                <%= f.submit "写真のみ変更する", class: "btn btn-sm btn-primary d-none", id:"btnChangePicture"%>
               </div>
             </div>
             <div>
@@ -23,9 +23,9 @@
           <div class="card-body">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">プロファイルを編集</a>
-                <a class="nav-item nav-link" id="nav-pw-tab" data-toggle="tab" href="#nav-pw" role="tab" aria-controls="nav-pw" aria-selected="false">パスワードを変更</a>
-                <a class="nav-item nav-link" id="nav-delete-tab" data-toggle="tab" href="#nav-delete" role="tab" aria-controls="nav-delete" aria-selected="false">アカウントを削除</a>
+                <a class="nav-item nav-link active" id="nav-info-tab" data-toggle="tab" href="#nav-info" role="tab" aria-controls="nav-info" aria-selected="true">プロフィイル</a>
+                <a class="nav-item nav-link" id="nav-pw-tab" data-toggle="tab" href="#nav-pw" role="tab" aria-controls="nav-pw" aria-selected="false">パスワード</a>
+                <a class="nav-item nav-link fas fa-user-cog" id="nav-delete-tab" data-toggle="tab" href="#nav-delete" role="tab" aria-controls="nav-delete" aria-selected="false"></a>
               </div>
             </nav>
             <div class="tab-content px-5 my-3" id="nav-tabContent">
@@ -43,8 +43,8 @@
                     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                   <% end %>
                   <div class="text-center my-4">
-                    <%= f.submit "保存", class: "btn btn-info my-4"%>
-                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
+                    <%= f.submit "保存", class: "btn btn-primary my-4"%>
+                    <%= link_to "戻る", :back, class: "btn btn-outline-primary"%>
                   </div>
                 </div>
               </div>
@@ -64,8 +64,8 @@
                     </div>
                   <% end %>
                   <div class="text-center my-4">
-                    <%= f.submit "保存", class: "btn btn-info my-4"%>
-                    <%= link_to "戻る", :back, class: "btn btn-outline-info"%>
+                    <%= f.submit "保存", class: "btn btn-primary my-4"%>
+                    <%= link_to "戻る", :back, class: "btn btn-outline-primary"%>
                   </div>
                 </div>
               </div>
