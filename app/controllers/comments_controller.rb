@@ -15,8 +15,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @feed.comments.find(params[:id])
-    @comment.destroy
-    flash[:notice] = "コメントを削除しました"
+    respond_to do |format|
+      if @comment.destroy
+        format.js { render :index }
+      else
+        format.html { redirect_to feed_path(@feed), notice: 'コメントを削除できませんでした' }
+      end
+    end
   end
 
   private

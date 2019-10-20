@@ -7,4 +7,9 @@ class Feed < ApplicationRecord
 
   validates :image, presence: true
   validates :content, length: { maximum: 300 }
+
+  def favorite?(feed, user)
+  feed.favorites.find_by(user_id: user.id)
+  end
+
 end

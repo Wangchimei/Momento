@@ -1,1 +1,1 @@
-$("#likes_button_<%=@feed.id%>").html("<%= j(render 'favorites/favorites_icon', {feed_id: feed.id}) %>")
+$("#favorite_btn_<%=@feed.id%>").html("<%= j(render partial: 'favorites/favorites_icon', locals: {feed: @feed}) %>")

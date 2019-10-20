@@ -1,8 +1,9 @@
 <% comments.each do |comment| %>
   <% if comment.id.present? %>
+    <li class="list-group-item comment-list">
     <div class="card-body">
-      <div class="row align-items-center px-1 py-1 my-3">
-        <div class="col-3 col-md-2 col-lg-1 text-center pl-1 pr-0">
+      <div class="row align-items-center mx-4">
+        <div class="col-3 col-md-2 col-lg-1 text-center pl-0 pr-0">
           <%=avatar(comment.user, "rounded-circle")%>
         </div>
         <div class="col-3 col-md-2 col-lg-1 text-left px-0">
@@ -15,10 +16,11 @@
         <div class="col-1 col-md-1 col-lg-1 text-center px-0">
           <% if current_user == comment.user %>
             <%= link_to '', [comment.feed, comment],
-          method: :delete, data: { confirm: 'コメントを削除しますか？' }, class:"btn fas fa-times" %>
+          method: :delete, remote: true, data: { confirm: 'コメントを削除しますか？' }, class:"btn fas fa-times" %>
           <%end%>
         </div>
       </div>
     </div>
+  </li>
   <% end %>
 <% end %>
