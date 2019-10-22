@@ -15,4 +15,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: 30 }
+
+  #指定のユーザをフォローする
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
+
+  #指定のユーザのフォローを解除する
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
 end

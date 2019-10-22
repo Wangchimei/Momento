@@ -9,9 +9,9 @@
           <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex justify-content-start align-items-center ml-2">
-                <%= avatar(feed.user, "rounded-circle")%>
+                <%= link_to avatar(feed.user, "rounded-circle"), user_path(feed.user.id) %>
                 <div class="ml-2">
-                  <p class="h6 mb-0 ml-0"><%=feed.user.name %></p>
+                  <p class="h6 mb-0 ml-0"><%=link_to "#{feed.user.name}", user_path(feed.user.id), class:"card-link text-dark" %></p>
                   <i class="far fa-clock text-muted h7 mt-0 ml-0" aria-hidden="true"> <%= distance_of_time_in_words(feed.created_at, Time.now)%>前</i>
                 </div>
               </div>

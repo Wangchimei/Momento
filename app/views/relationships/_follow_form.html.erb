@@ -1,0 +1,18 @@
+<div id="follow_<%= user.id %>">
+  <% unless current_user.following?(user) %>
+    <%= form_with(model: current_user.active_relationships.build(followed_id: user.id))  do |f| %>
+      <%= f.hidden_field :followed_id %>
+      <%#= f.submit "フォロー", class:"btn btn-outline-info" %>
+      <%= button_tag type: 'submit', class: "btn btn-outline-info", id: "register-button" do %>
+        <i class="fas fa-camera-retro" aria-hidden="true"> フォロー</i>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete ) do |f| %>
+      <%#= f.submit "アンフォロー", class:"btn btn-outline-info" %>
+      <%= button_tag type: 'submit', class: "btn btn-outline-info", id: "register-button" do %>
+        <i class="far fa-minus-square" aria-hidden="true"> アンフォロー</i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

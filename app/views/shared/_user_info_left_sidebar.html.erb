@@ -8,8 +8,8 @@
 </div>
 <div class="card text-center my-3">
   <div class="card-body my-3">
-    <div><%= avatar(current_user, "feed-avatar")%></div>
-    <div class="h5 mb-0"><%=current_user.name%></div>
+    <div><%=link_to avatar(current_user, "feed-avatar"), user_path(current_user) %></div>
+    <div class="h5 mb-0"><%=link_to "#{current_user.name}", user_path(current_user), class:"card-link text-dark"%></div>
   </div>
   <ul class="list-group list-group-flush px-1 pb-1">
     <li class="list-group-item">
