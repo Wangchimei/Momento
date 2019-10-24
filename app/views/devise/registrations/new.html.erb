@@ -15,7 +15,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :email, class: "sr-only" %><br />
+          <%= f.label :email, class: "sr-only" %>
           <%= f.email_field :email, autocomplete: "email", class: "form-control signin-box", placeholder: "メールアドレス"%>
         </div>
 
@@ -25,12 +25,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, class: "sr-only" %><br />
+          <%= f.label :password_confirmation, class: "sr-only" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control signin-box", placeholder: "パスワード再入力" %>
         </div>
         <% if @minimum_password_length %>
           <div class="text-center">
-            <small class="text-light fas fa-exclamation-circle"> パスワードの長さは最低 <%= @minimum_password_length %>文字です。</small>
+            <small class="text-light fas fa-exclamation-circle mb-3"> パスワードの長さは最低 <%= @minimum_password_length %>文字です。</small>
           </div>
         <% end %>
 

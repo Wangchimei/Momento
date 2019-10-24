@@ -10,7 +10,7 @@ body {
   padding: 0;
   background-image: linear-gradient(125deg,#1f3a93,#4484ce,#00a5ce,#0dcfcc,#f88fb4, #f7d794, #686de0);
   background-size: 1200% 1200%;
-  animation: bganimation 45s ease infinite;
+  animation: bganimation 35s ease infinite;
   height: 100%;
 }
 
@@ -99,9 +99,19 @@ body {
   border-radius: 5px;
 }
 
-.btn-light {
-  
+.form-check .form-check-label::before,
+.form-check .form-check-label::after {
+    top: 0.1rem !important;
+    left: -rem !important;
+    width: 1rem !important;
+    height: 1rem !important;
 }
+
+.form-check .form-check-label {
+    margin-left: 0.5rem !important;
+    font-size: 1rem !important;
+}
+
 //Error display
 ul {
   padding-left: 0.6rem;
