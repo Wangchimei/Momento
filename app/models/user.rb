@@ -16,6 +16,16 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30 }
 
+  #指定のフィードのお気に入りを登録する
+  def favorite!(feed)
+    favorites.create!(feed_id: feed.id)
+  end
+
+  #指定のフィードのお気に入りを解除する
+  def unfavorite!(feed)
+    favorites.find_by(feed_id: feed.id).destroy
+  end
+
   #指定のユーザをフォローする
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
