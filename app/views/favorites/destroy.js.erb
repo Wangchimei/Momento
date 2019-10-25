@@ -1,0 +1,1 @@
+$("#favorite_"+"<%=@feed.id%>").html("<%= escape_javascript(render partial: 'favorites/favorites_form', locals: { feed: @feed } ) %>")

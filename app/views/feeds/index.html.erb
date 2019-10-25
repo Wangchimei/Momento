@@ -45,12 +45,10 @@
               <div class="d-flex align-items-center my-2">
                 <div class="comment-wrap">
                   <i class="far fa-comments h5 mb-0 mx-2"></i>
-                  <span class="h6"><%= feed.comments.count %>件</span>
+                  <span class="h6 mr-3"><%= feed.comments.count %>件</span>
                 </div>
                 <% unless feed.user_id == current_user.id %>
-                  <div id="likes_button_<%=feed.id%>" class="ml-3">
-                    <%= render partial: 'favorites/favorites_icon', locals: {feed: feed, favorites: @favorites} %>
-                  </div>
+                  <%= render partial: 'favorites/favorites_form', locals: {feed: feed, favorites: @favorites} %>
                 <% end %>
               </div>
               <div>
