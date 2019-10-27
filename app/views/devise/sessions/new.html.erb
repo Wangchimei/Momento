@@ -6,7 +6,7 @@
       </div>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+        <%= render 'shared/flash_msg' %>
         <div class="field">
           <%= f.label :email, class: "sr-only" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control signin-box", placeholder: "メールアドレス"%>

@@ -14,15 +14,15 @@
   <ul class="list-group list-group-flush px-1 pb-1">
     <li class="list-group-item">
       <div class="h6 text-muted">フォロワー</div>
-      <div class="h5">5.2342</div>
+      <div class="h5"><%=current_user.followers.count%></div>
     </li>
     <li class="list-group-item">
       <div class="h6 text-muted">フォロー</div>
-      <div class="h5">6758</div>
+      <div class="h5"><%=current_user.following.count%></div>
     </li>
     <li class="list-group-item">
       <div class="h6 text-muted">お気に入り数</div>
-      <div class="h5">6758</div>
+      <div class="h5"><%=current_user.favorites.count%></div>
     </li>
   </ul>
 </div>
