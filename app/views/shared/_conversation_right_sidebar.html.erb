@@ -9,7 +9,7 @@
             <tbody>
               <tr>
                 <td class="text-left"><%=link_to "#{user.name}", user_path(user), class:"card-subtitle h6 mt-0 ml-3 card-link text-dark" %></td>
-                <td style="width: 40%"><%=link_to " メッセージ", user_path(user), class:"btn btn-outline-info h7 fab fa-rocketchat py-2" %></td>
+                <td style="width: 40%"><%=link_to " メッセージ", user_path(user), class:"btn btn-outline-info h7 fab fa-rocketchat py-2", id:"startConversation", "data-sender": current_user.id, "data-recipient": user.id %></td>
               </tr>
             </tbody>
           </table>
