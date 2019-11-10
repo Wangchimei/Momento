@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_10_104915) do
+ActiveRecord::Schema.define(version: 2019_11_10_111342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2019_11_10_104915) do
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -78,4 +89,6 @@ ActiveRecord::Schema.define(version: 2019_11_10_104915) do
   add_foreign_key "comments", "feeds"
   add_foreign_key "comments", "users"
   add_foreign_key "feeds", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
 end
