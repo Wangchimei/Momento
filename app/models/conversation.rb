@@ -8,9 +8,11 @@ class Conversation < ApplicationRecord
 
   scope :involving, -> (user) do
     where("conversations.sender_id =? OR conversations.recipient_id =?", user.id, user.id)
+  end
 
   scope :between, -> (sender_id, recipient_id) do
-    where ("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id, recipient, recipient_id, sender_id)
+    where("(conversations.sender_id = ? AND conversations.recipient_id = ?) OR (conversations.sender_id = ? AND conversations.recipient_id = ?)", sender_id, recipient, recipient_id, sender_id)
+  end
 
   def target_user(current_user)
     if sender_id == current_user.id
@@ -19,5 +21,4 @@ class Conversation < ApplicationRecord
       User.find(sender_id)
     end
   end
-
 end

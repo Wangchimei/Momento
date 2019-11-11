@@ -28,6 +28,10 @@ class ConversationsController < ApplicationController
   end
 
   def interlocutor(conversation)
-    current_user == conversation.recipient? conversation.sender : conversation.recipient
+    if current_user == conversation.recipient
+      conversation.sender
+    else
+      conversation.recipient
+    end
   end
 end
