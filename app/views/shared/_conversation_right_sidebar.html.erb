@@ -1,9 +1,20 @@
 <div class="card gedf-card mb-3">
   <div class="card-body text-center">
-    <h5 class="h6 card-title my-2">友達一覧</h5>
-    <div class="d-flex justify-content-between align-items-center my-2 mx-3">
-      <h6 class="card-subtitle h6 mt-0">Kimmy</h6>
-      <a href="#" class="btn btn-outline-primary h7 px-1 py-0">メッセージ</a>
-    </div>
+    <h5 class="h6 card-title my-2">フォロー中</h5>
+      <% if current_user.following == nil %>
+        <%= content_tag(:div, "現在フォロー中のユーザーがいません。", class: "text-muted h6-5")%>
+      <% else %>
+        <% current_user.following.each do |user| %>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td class="text-left"><%=link_to "#{user.name}", user_path(user), class:"card-subtitle h6 mt-0 ml-3 card-link text-dark" %></td>
+                <td style="width: 40%"><%=link_to " メッセージ", user_path(user), class:"btn btn-outline-info h7 fab fa-rocketchat py-2", id:"startConversation", "data-sender": current_user.id, "data-recipient": user.id %></td>
+              </tr>
+            </tbody>
+          </table>
+        <% end %>
+      <% end %>
+    </h5>
   </div>
 </div>

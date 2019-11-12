@@ -47,7 +47,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # 保存するファイルの命名規則
   def filename
-     "#{secure_token(10)}.#{file.extension}" if original_filename.present?
+    "#{secure_token(10)}.#{file.extension}" if original_filename.present?
   end
 
   protected

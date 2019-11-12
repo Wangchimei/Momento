@@ -6,12 +6,13 @@
     <title>Momento</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'conversations', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'conversation', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="site-wrapper">
-    <%#=render "shared/navbar"%>
+
+    <%=render "shared/navbar"%>
 
     <% flash.each do |key, value| %>
       <div class="alert alert-info">

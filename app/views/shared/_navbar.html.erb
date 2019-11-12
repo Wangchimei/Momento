@@ -1,4 +1,4 @@
-<div class="px-3 py-5">
+ <div class="py-5">
   <nav class="navbar navbar-expand-md nav-bg fixed-top navbar-dark justify-content-center">
     <%=link_to image_tag( "navbar_logo.png", class:"mx-3 my-1", size: "165x66"), feeds_path%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar"
@@ -16,7 +16,7 @@
             <%= link_to "プロフィール", user_path(current_user.id), class: "nav-link #{ "active" if current_page?(user_path(current_user.id))}" %>
           </li>
           <li class="nav-item">
-            <%#= link_to "お気に入り一覧", favorite_path(current_user.id), class: "nav-link #{ "active" if current_page?(favorite_path(current_user.id))}" %>
+            <%= link_to "チャット", conversations_path, class: "nav-link #{ "active" if current_page?(conversations_path)}" %>
           </li>
         </ul>
         <ul class="nav navbar-nav ml-auto justify-content-end">
@@ -27,4 +27,4 @@
       <% end %>
     </div>
   </nav>
-</div>
+</div> 
