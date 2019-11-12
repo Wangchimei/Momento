@@ -13,8 +13,10 @@ CarrierWave.configure do |config|
       path_style:            true,
   }
 
+  config.enable_processing = true
+
   # 公開・非公開の切り替え
-  config.fog_public     = true
+  config.fog_public = true
   # キャッシュの保存期間
   config.fog_attributes = {'Cache-Control' => 'public, max-age=86400'}
 
@@ -27,11 +29,11 @@ CarrierWave.configure do |config|
       config.fog_directory = 'momento-production'
       config.asset_host = 'https://momento-production.s3-ap-northeast-1.amazonaws.com'
     when 'development'
-      config.fog_directory = 'momento-development'
-      config.asset_host = 'https://momento-development.s3-ap-northeast-1.amazonaws.com'
-    # when 'test'
-    #   config.fog_directory = 'momento-test'
-    #   config.asset_host = 'https://momento-test.s3-ap-northeast-1.amazonaws.com'
+      # config.fog_directory = 'momento-development'
+      # config.asset_host = 'https://momento-development.s3-ap-northeast-1.amazonaws.com'
+      # when 'test'
+      #   config.fog_directory = 'momento-test'
+      #   config.asset_host = 'https://momento-test.s3-ap-northeast-1.amazonaws.com'
   end
 end
 
